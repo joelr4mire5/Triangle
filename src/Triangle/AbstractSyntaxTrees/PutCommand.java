@@ -5,13 +5,14 @@ import Triangle.SyntacticAnalyzer.SourcePosition;
 
     public class PutCommand extends Command {
 
-        public Expression E;
-        public Command C;
+        public Expression E1, E2;
+        public Vname v;
 
-        public PutCommand(Command cAST, Expression eAST, SourcePosition sourcePosition){
+        public PutCommand(Vname vAST, Expression e1AST, Expression e2AST, SourcePosition sourcePosition){
             super(sourcePosition);
-            E=eAST;
-            C= cAST;
+            E1= e1AST;
+            E2= e2AST;
+            v = vAST;
         }
 
         @Override

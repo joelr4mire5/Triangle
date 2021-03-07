@@ -734,6 +734,7 @@ public final class Encoder implements Visitor {
     elaborateStdPrimRoutine(StdEnvironment.moduloDecl, Machine.modDisplacement);
     elaborateStdPrimRoutine(StdEnvironment.lessDecl, Machine.ltDisplacement);
     elaborateStdPrimRoutine(StdEnvironment.notgreaterDecl, Machine.leDisplacement);
+    elaborateStdPrimRoutine(StdEnvironment.numb, Machine.leDisplacement);
     elaborateStdPrimRoutine(StdEnvironment.greaterDecl, Machine.gtDisplacement);
     elaborateStdPrimRoutine(StdEnvironment.notlessDecl, Machine.geDisplacement);
     elaborateStdPrimRoutine(StdEnvironment.chrDecl, Machine.idDisplacement);

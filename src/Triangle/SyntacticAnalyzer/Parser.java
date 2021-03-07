@@ -278,15 +278,16 @@ public class Parser {
         finish(commandPos);
         commandAST =new RepeatCommand(cAST,eAST,commandPos);
       }
+      break;
 
       case Token.RUN:
       {
         acceptIt();
-        Command cAST = parseSingleCommand();
+        IntegerLiteral iAST = parseIntegerLiteral();
         accept(Token.TIMES);
-        Expression eAST = parseExpression();
+        Command cAST = parseSingleCommand();
         finish(commandPos);
-        commandAST = new RunCommand(cAST,eAST,commandPos);
+        commandAST = new RunCommand(cAST,iAST,commandPos);
 
       }
       break;
@@ -294,11 +295,15 @@ public class Parser {
       case Token.PUT:
       {
         acceptIt();
-        Command cAST = parseSingleCommand();
+        Vname vAST = parseVname();
         accept(Token.BIGGER);
-        Expression eAST = parseExpression();
+        accept(Token.LPAREN);
+        Expression e1AST  = parseExpression();
+        accept(Token.COLON);
+        Expression e2AST = parseExpression();
+        accept(Token.RPAREN);
         finish(commandPos);
-        commandAST = new RunCommand(  cAST,eAST,commandPos);
+        commandAST = new PutCommand( vAST,e1AST,e2AST,commandPos);
 
       }
       break;

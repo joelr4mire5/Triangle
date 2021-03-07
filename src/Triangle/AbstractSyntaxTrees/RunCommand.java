@@ -3,16 +3,15 @@ package Triangle.AbstractSyntaxTrees;
 import Triangle.SyntacticAnalyzer.SourcePosition;
 
 public class RunCommand extends Command{
-    public Expression E;
+    public IntegerLiteral I;
     public Command C;
 
-    public RunCommand(Command cAST, Expression eAST, SourcePosition sourcePosition){
+    public RunCommand(Command cAST, IntegerLiteral iAST, SourcePosition sourcePosition){
         super(sourcePosition);
-        E=eAST;
+        I=iAST;
         C= cAST;
     }
 
-    @Override
     public Object visit(Visitor v, Object o) {
         return v.visitRunCommand(this,o);
     }

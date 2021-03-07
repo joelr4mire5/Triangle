@@ -96,6 +96,7 @@ public final class Checker implements Visitor {
   public Object visitPutCommand(PutCommand ast, Object obj) {
     return null;
   }
+
   public Object visitForCommand(ForCommand ast, Object obj) {
     return null;
   }
@@ -862,6 +863,7 @@ public final class Checker implements Visitor {
     StdEnvironment.notgreaterDecl = declareStdBinaryOp("<=", StdEnvironment.integerType, StdEnvironment.integerType, StdEnvironment.booleanType);
     StdEnvironment.greaterDecl = declareStdBinaryOp(">", StdEnvironment.integerType, StdEnvironment.integerType, StdEnvironment.booleanType);
     StdEnvironment.notlessDecl = declareStdBinaryOp(">=", StdEnvironment.integerType, StdEnvironment.integerType, StdEnvironment.booleanType);
+    StdEnvironment.numb = declareStdBinaryOp("#", StdEnvironment.integerType, StdEnvironment.integerType, StdEnvironment.integerType);
 
     StdEnvironment.charDecl = declareStdType("Char", StdEnvironment.charType);
     StdEnvironment.chrDecl = declareStdFunc("chr", new SingleFormalParameterSequence(

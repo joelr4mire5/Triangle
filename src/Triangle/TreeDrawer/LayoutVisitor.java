@@ -62,11 +62,11 @@ public class LayoutVisitor implements Visitor {
     return layoutBinary("RepeatCom.",ast.C, ast.E);
   }
   public Object visitRunCommand(RunCommand ast, Object obj) {
-    return layoutBinary("RunCom.", ast.C, ast.E);
+    return layoutBinary("RunCom.", ast.C, ast.I);
   }
 
   public Object visitPutCommand(PutCommand ast, Object obj) {
-    return layoutBinary("putCom.", ast.C, ast.E);
+    return layoutTernary( "putCom.", ast.v, ast.E1,ast.E2 );
   }
 
   @Override
